@@ -1,5 +1,5 @@
 //
-//  VolumeConverterView.swift
+//  LengthConverterView.swift
 //  TiVoLeTeConverter
 //
 //  Created by Sergey Petrosyan on 08.02.24.
@@ -7,29 +7,29 @@
 
 import SwiftUI
 
-struct VolumeConverterView: View {
+struct LengthConverterView: View {
     
-    @StateObject private var vm = VolumeConverterViewModel()
+    @StateObject private var vm = LengthConverterViewModel()
     @FocusState private var keyboardIsShown: Bool
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    Picker("Convert from", selection: $vm.volumeUnitToConvertFrom) {
-                        ForEach(VolumeUnit.allCases, id: \.self) { unit in
+                    Picker("Convert from", selection: $vm.lengthUnitToConvertFrom) {
+                        ForEach(LengthUnit.allCases, id: \.self) { unit in
                             Text(unit.rawValue)
                         }
                     }
                     
-                    TextField("Enter number of \(vm.volumeUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedVolumeValue, format: .number)
+                    TextField("Enter number of \(vm.lengthUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedLengthValue, format: .number)
                         .keyboardType(.decimalPad)
                         .focused($keyboardIsShown)
                 }
                 
                 Section {
-                    Picker("Convert to", selection: $vm.volumeUnitToConvertTo) {
-                        ForEach(VolumeUnit.allCases, id: \.self) { unit in
+                    Picker("Convert to", selection: $vm.lengthUnitToConvertTo) {
+                        ForEach(LengthUnit.allCases, id: \.self) { unit in
                             Text(unit.rawValue)
                         }
                     }
@@ -37,7 +37,7 @@ struct VolumeConverterView: View {
                     Text(vm.conversionResult, format: .number)
                 }
             }
-            .navigationTitle("Volume converter")
+            .navigationTitle("Length converter")
             .toolbar {
                 if keyboardIsShown {
                     Button("Done") {
@@ -50,5 +50,5 @@ struct VolumeConverterView: View {
 }
 
 #Preview {
-    VolumeConverterView()
+    LengthConverterView()
 }

@@ -40,7 +40,6 @@ struct TimeConverterView: View {
                 }
             }
             .navigationTitle("Time converter")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if keyboardIsShown {
                     Button("Done") {

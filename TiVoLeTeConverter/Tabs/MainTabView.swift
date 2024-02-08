@@ -27,14 +27,14 @@ struct MainTabView: View {
                 .onAppear { selectedTab = 2 }
                 .tag(2)
             
-            Text("Length converter")
+            LengthConverterView()
                 .tabItem { Image(systemName: selectedTab == 3 ? "ruler.fill" : "ruler")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
                 }
                 .onAppear { selectedTab = 3 }
                 .tag(3)
             
-            Text("Temperature converter")
+            TemperatureConverterView()
                 .tabItem { Image(systemName: selectedTab == 4 ? "thermometer.sun.fill" : "thermometer.sun")
                         .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
                 }
