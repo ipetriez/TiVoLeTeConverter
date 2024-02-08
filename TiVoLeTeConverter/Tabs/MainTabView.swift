@@ -20,7 +20,7 @@ struct MainTabView: View {
                 .onAppear { selectedTab = 1 }
                 .tag(1)
             
-            Text("Volume converter")
+            VolumeConverterView()
                 .tabItem { Image(systemName: "testtube.2")
                         .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
                 }

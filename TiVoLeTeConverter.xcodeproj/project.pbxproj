@@ -13,6 +13,8 @@
 		707C16DD2B74FD13000D9B4B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C16DC2B74FD13000D9B4B /* MainTabView.swift */; };
 		707C16E32B7504EE000D9B4B /* TimeConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C16E22B7504EE000D9B4B /* TimeConverterView.swift */; };
 		707C16E52B7504F7000D9B4B /* TimeConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C16E42B7504F7000D9B4B /* TimeConverterViewModel.swift */; };
+		70F85FDF2B75480200E6024F /* VolumeConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F85FDE2B75480200E6024F /* VolumeConverterViewModel.swift */; };
+		70F85FE12B75480B00E6024F /* VolumeConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F85FE02B75480B00E6024F /* VolumeConverterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		707C16DC2B74FD13000D9B4B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		707C16E22B7504EE000D9B4B /* TimeConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterView.swift; sourceTree = "<group>"; };
 		707C16E42B7504F7000D9B4B /* TimeConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterViewModel.swift; sourceTree = "<group>"; };
+		70F85FDE2B75480200E6024F /* VolumeConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConverterViewModel.swift; sourceTree = "<group>"; };
+		70F85FE02B75480B00E6024F /* VolumeConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConverterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			children = (
 				707C16DC2B74FD13000D9B4B /* MainTabView.swift */,
 				707C16E12B7504CB000D9B4B /* TimeConverter */,
+				70F85FDD2B7547E300E6024F /* VolumeConverter */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -103,6 +108,15 @@
 				707C16E42B7504F7000D9B4B /* TimeConverterViewModel.swift */,
 			);
 			path = TimeConverter;
+			sourceTree = "<group>";
+		};
+		70F85FDD2B7547E300E6024F /* VolumeConverter */ = {
+			isa = PBXGroup;
+			children = (
+				70F85FE02B75480B00E6024F /* VolumeConverterView.swift */,
+				70F85FDE2B75480200E6024F /* VolumeConverterViewModel.swift */,
+			);
+			path = VolumeConverter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F85FDF2B75480200E6024F /* VolumeConverterViewModel.swift in Sources */,
 				707C16E32B7504EE000D9B4B /* TimeConverterView.swift in Sources */,
 				707C16CF2B74FC6D000D9B4B /* TiVoLeTeConverterApp.swift in Sources */,
+				70F85FE12B75480B00E6024F /* VolumeConverterView.swift in Sources */,
 				707C16E52B7504F7000D9B4B /* TimeConverterViewModel.swift in Sources */,
 				707C16DD2B74FD13000D9B4B /* MainTabView.swift in Sources */,
 			);
