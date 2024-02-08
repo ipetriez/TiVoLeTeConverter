@@ -10,6 +10,7 @@ import SwiftUI
 struct TimeConverterView: View {
     
     @StateObject private var vm = TimeConverterViewModel()
+    @FocusState private var keyboardIsShown: Bool
     
     var body: some View {
         NavigationStack {
@@ -21,6 +22,8 @@ struct TimeConverterView: View {
                         }
                     }
                     TextField("Enter number of \(vm.timeUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedTimeValue, format: .number)
+                        .keyboardType(.decimalPad)
+                        .focused($keyboardIsShown)
                 }
                 
                 Section {
@@ -34,6 +37,13 @@ struct TimeConverterView: View {
             }
             .navigationTitle("Time converter")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if keyboardIsShown {
+                    Button("Done") {
+                        keyboardIsShown.toggle()
+                    }
+                }
+            }
         }
     }
 }
