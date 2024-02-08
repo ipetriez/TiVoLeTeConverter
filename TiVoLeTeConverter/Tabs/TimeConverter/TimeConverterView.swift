@@ -45,6 +45,7 @@ struct TimeConverterView: View {
                     Button("Done") {
                         keyboardIsShown.toggle()
                     }
+                    .tint(Color(.label))
                 }
             }
         }
