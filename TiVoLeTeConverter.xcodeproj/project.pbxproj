@@ -11,6 +11,8 @@
 		707C16D32B74FC6E000D9B4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707C16D22B74FC6E000D9B4B /* Assets.xcassets */; };
 		707C16D62B74FC6E000D9B4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707C16D52B74FC6E000D9B4B /* Preview Assets.xcassets */; };
 		707C16DD2B74FD13000D9B4B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C16DC2B74FD13000D9B4B /* MainTabView.swift */; };
+		707C16E32B7504EE000D9B4B /* TimeConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C16E22B7504EE000D9B4B /* TimeConverterView.swift */; };
+		707C16E52B7504F7000D9B4B /* TimeConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C16E42B7504F7000D9B4B /* TimeConverterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		707C16D22B74FC6E000D9B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		707C16D52B74FC6E000D9B4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		707C16DC2B74FD13000D9B4B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		707C16E22B7504EE000D9B4B /* TimeConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterView.swift; sourceTree = "<group>"; };
+		707C16E42B7504F7000D9B4B /* TimeConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +91,18 @@
 			isa = PBXGroup;
 			children = (
 				707C16DC2B74FD13000D9B4B /* MainTabView.swift */,
+				707C16E12B7504CB000D9B4B /* TimeConverter */,
 			);
 			path = Tabs;
+			sourceTree = "<group>";
+		};
+		707C16E12B7504CB000D9B4B /* TimeConverter */ = {
+			isa = PBXGroup;
+			children = (
+				707C16E22B7504EE000D9B4B /* TimeConverterView.swift */,
+				707C16E42B7504F7000D9B4B /* TimeConverterViewModel.swift */,
+			);
+			path = TimeConverter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				707C16E32B7504EE000D9B4B /* TimeConverterView.swift in Sources */,
 				707C16CF2B74FC6D000D9B4B /* TiVoLeTeConverterApp.swift in Sources */,
+				707C16E52B7504F7000D9B4B /* TimeConverterViewModel.swift in Sources */,
 				707C16DD2B74FD13000D9B4B /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

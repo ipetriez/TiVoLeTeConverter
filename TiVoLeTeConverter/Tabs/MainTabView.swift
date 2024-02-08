@@ -13,7 +13,7 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab, content:  {
-            Text("Time converter")
+            TimeConverterView()
                 .tabItem { Image(systemName: "clock.arrow.2.circlepath")
                         .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
                 }
