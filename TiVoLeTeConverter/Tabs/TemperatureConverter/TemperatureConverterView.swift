@@ -14,39 +14,55 @@ struct TemperatureConverterView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-                    Picker("Convert from", selection: $vm.temperatureUnitToConvertFrom) {
-                        ForEach(TemperatureUnit.allCases, id: \.self) { unit in
-                            Text(unit.rawValue)
+            ZStack {
+                VStack(spacing: 0) {
+                    Form {
+                        Section("Conversion result in:") {
+                            Picker("Convert to", selection: $vm.temperatureUnitToConvertTo) {
+                                ForEach(TemperatureUnit.allCases, id: \.self) { unit in
+                                    Text(unit.rawValue)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                            
+                            Text(vm.conversionResult, format: .number)
                         }
                     }
-                    .pickerStyle(.wheel)
                     
-                    TextField("Enter number of \(vm.temperatureUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedTemperatureValue, format: .number)
-                        .keyboardType(.decimalPad)
-                        .focused($keyboardIsShown)
+                    Form {
+                        Section("Convert from") {
+                            Picker("Convert from", selection: $vm.temperatureUnitToConvertFrom) {
+                                ForEach(TemperatureUnit.allCases, id: \.self) { unit in
+                                    Text(unit.rawValue)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            
+                            TextField("Enter number of \(vm.temperatureUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedTemperatureValue, format: .number)
+                                .keyboardType(.decimalPad)
+                                .focused($keyboardIsShown)
+                        }
+                    }
+                    .navigationTitle("Temperature converter")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        if keyboardIsShown {
+                            Button("Done") {
+                                keyboardIsShown.toggle()
+                            }
+                            .fontWeight(.semibold)
+                            .tint(Color(.label))
+                        }
+                    }
                 }
                 
-                Section {
-                    Picker("Convert to", selection: $vm.temperatureUnitToConvertTo) {
-                        ForEach(TemperatureUnit.allCases, id: \.self) { unit in
-                            Text(unit.rawValue)
-                        }
-                    }
-                    .pickerStyle(.wheel)
-                    
-                    Text(vm.conversionResult, format: .number)
-                }
-            }
-            .navigationTitle("Temperature converter")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                if keyboardIsShown {
-                    Button("Done") {
-                        keyboardIsShown.toggle()
-                    }
-                    .tint(Color(.label))
+                if !keyboardIsShown {
+                    Image(systemName: "thermometer.sun")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.bottom, 170)
+                        .foregroundStyle(.tertiary)
                 }
             }
         }

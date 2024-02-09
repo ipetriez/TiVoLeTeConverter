@@ -14,38 +14,55 @@ struct TimeConverterView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-                    Picker("Convert from", selection: $vm.timeUnitToConvertFrom) {
-                        ForEach(TimeUnit.allCases, id: \.self) { unit in
-                            Text(unit.rawValue)
+            ZStack {
+                VStack(spacing: 0) {
+                    Form {
+                        Section("Conversion result in:") {
+                            Picker("Convert to", selection: $vm.timeUnitToConvertTo) {
+                                ForEach(TimeUnit.allCases, id: \.self) { unit in
+                                    Text(unit.rawValue)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                            
+                            Text(vm.conversionResult, format: .number)
                         }
                     }
-                    .pickerStyle(.segmented)
                     
-                    TextField("Enter number of \(vm.timeUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedTimeValue, format: .number)
-                        .keyboardType(.decimalPad)
-                        .focused($keyboardIsShown)
+                    Form {
+                        Section("Convert from:") {
+                            Picker("Convert from", selection: $vm.timeUnitToConvertFrom) {
+                                ForEach(TimeUnit.allCases, id: \.self) { unit in
+                                    Text(unit.rawValue)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            
+                            TextField("Enter number of \(vm.timeUnitToConvertFrom.rawValue) for conversion", value: $vm.selectedTimeValue, format: .number)
+                                .keyboardType(.decimalPad)
+                                .focused($keyboardIsShown)
+                        }
+                    }
+                    .navigationTitle("Time converter")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        if keyboardIsShown {
+                            Button("Done") {
+                                keyboardIsShown.toggle()
+                            }
+                            .fontWeight(.semibold)
+                            .tint(Color(.label))
+                        }
+                    }
                 }
                 
-                Section {
-                    Picker("Convert to", selection: $vm.timeUnitToConvertTo) {
-                        ForEach(TimeUnit.allCases, id: \.self) { unit in
-                            Text(unit.rawValue)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    
-                    Text(vm.conversionResult, format: .number)
-                }
-            }
-            .navigationTitle("Time converter")
-            .toolbar {
-                if keyboardIsShown {
-                    Button("Done") {
-                        keyboardIsShown.toggle()
-                    }
-                    .tint(Color(.label))
+                if !keyboardIsShown {
+                    Image(systemName: "clock.arrow.2.circlepath")
+                        .resizable()
+                        .frame(width: 115, height: 100)
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.bottom, 170)
+                        .foregroundStyle(.tertiary)
                 }
             }
         }
